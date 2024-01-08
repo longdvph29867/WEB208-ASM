@@ -7,11 +7,14 @@ import { Movie } from '../common/movie';
   providedIn: 'root'
 })
 export class MoviesService {
-  url = 'https://angular-movies-api.vercel.app/movies';
+  url = 'https://angular-movies-api.vercel.app/movies/';
   http = inject(HttpClient)
   constructor() {}
   // constructor(public http: HttpClient) { }
   getAllMovies() {
     return this.http.get<Movie[]>(this.url);
+  }
+  getDetail(id: string) {
+    return this.http.get<Movie[]>(this.url + id);
   }
 }

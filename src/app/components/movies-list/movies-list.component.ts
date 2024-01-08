@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MovieItemComponent } from './movie-item/movie-item.component';
+import { MovieItemComponent } from '../movie-item/movie-item.component';
 import { moviesList } from '../../../assets/data';
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../common/movie';
 import { MoviesService } from '../../services/movies.service';
 import { catchError, throwError } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movies-list',

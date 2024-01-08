@@ -1,5 +1,5 @@
 export type Movie = {
-  id: string,
+  _id: string,
   name: string,
   poster: string,
   director: string

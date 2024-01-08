@@ -12,7 +12,7 @@ import { Movie } from '../../common/movie';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, BannerComponent,MoviesListComponent, TrailersComponent, LatestNewsComponent, SidebarComponent],
+  imports: [ BannerComponent, MoviesListComponent, TrailersComponent, LatestNewsComponent, SidebarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -27,7 +27,6 @@ export class HomeComponent {
   }
   getAllMovies() {
     this.movieService.getAllMovies().subscribe((data: any) => {
-
       this.moviesList = data
     }, (error) => {
       this.error = error.message

@@ -14,7 +14,7 @@
 
   <div
     class="absolute w-full h-full py-5 px-7 top-0 left-0 flex items-center justify-center duration-1000 group-hover/item-movie:bg-black/50">
-    <a routerLink="/detail">
+    <a [routerLink]="['/movies', movie._id]">
       <button
         class="w-32 h-10 uppercase text-sm text-white font-bold bg-[#F27221] rounded-full invisible opacity-0 duration-500 group-hover/item-movie:visible group-hover/item-movie:opacity-100">view
         details <i class="fa-solid fa-caret-right"></i></button>
