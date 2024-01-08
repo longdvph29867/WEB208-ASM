@@ -1,6 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { HeaderComponent } from '../../components/header/header.component';
+import { Component, inject } from '@angular/core';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { TrailersComponent } from '../../components/trailers/trailers.component';
 import { LatestNewsComponent } from '../../components/latest-news/latest-news.component';
