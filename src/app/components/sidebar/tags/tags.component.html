@@ -1,21 +1,6 @@
 <div class="text-white pt-12">
   <h4 class="text-white text-lg font-bold pb-4 border-b border-[#405266]">TAGS</h4>
   <ul class="flex items-center justify-start flex-wrap font-light capitalize text-[#abb7c4] mt-2.5">
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Batman</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">film</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">homeland</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Fast &amp; Furious</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Dead Walker</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">King</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Beauty</a></li>
-
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Fast &amp; Furious</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Batman</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">film</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">homeland</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Fast &amp; Furious</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Dead Walker</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">King</a></li>
-    <li><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">Beauty</a></li>
+    <li *ngFor="let tag of tagsList"><a href="#" class="block mr-2.5 mb-2.5 py-[5px] px-4 bg-[#152a3e]">{{tag}}</a></li>
   </ul>
 </div>

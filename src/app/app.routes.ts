@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { LayoutComponent } from './layouts/layout/layout.component';
 import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
+import { CreateComponent } from './pages/admin/create/create.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     path: 'admin',
     component: LayoutAdminComponent,
     children: [
+      {
+        'path': 'movies/create',
+        component: CreateComponent
+      },
     ],
   },
 ];

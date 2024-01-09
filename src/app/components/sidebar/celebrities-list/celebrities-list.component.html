@@ -1,34 +1,12 @@
 <div>
   <h4 class="text-white text-lg font-bold pb-4 border-b border-[#405266]">SPOTLIGHT CELEBRITIES</h4>
   <div class="grid lg:grid-cols-1 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-    <div class="flex items-center mt-7 group/actor">
-      <img src="../../../assets/img/actor.jpeg" alt="" class="w-[70px] mr-4 rounded">
+    <div class="flex items-center mt-7 group/actor" *ngFor="let actor of celebritiesList">
+      <img [src]="actor.img" alt="" class="w-[70px] mr-4 rounded">
       <div class="text-sm">
-        <h5 class="text-white font-medium duration-300 group-hover/actor:text-[#DCF836]">Samuel N. Jack</h5>
+        <h5 class="text-white font-medium duration-300 group-hover/actor:text-[#DCF836]">{{actor.name}}</h5>
         <p class="text-[#abb7c4] uppercase">actor</p>
       </div>
     </div>
-    <div class="flex items-center mt-7 group/actor">
-      <img src="../../../assets/img/actor.jpeg" alt="" class="w-[70px] mr-4 rounded">
-      <div class="text-sm">
-        <h5 class="text-white font-medium duration-300 group-hover/actor:text-[#DCF836]">Samuel N. Jack</h5>
-        <p class="text-[#abb7c4] uppercase">actor</p>
-      </div>
-    </div>
-    <div class="flex items-center mt-7 group/actor">
-      <img src="../../../assets/img/actor.jpeg" alt="" class="w-[70px] mr-4 rounded">
-      <div class="text-sm">
-        <h5 class="text-white font-medium duration-300 group-hover/actor:text-[#DCF836]">Samuel N. Jack</h5>
-        <p class="text-[#abb7c4] uppercase">actor</p>
-      </div>
-    </div>
-    <div class="flex items-center mt-7 group/actor">
-      <img src="../../../assets/img/actor.jpeg" alt="" class="w-[70px] mr-4 rounded">
-      <div class="text-sm">
-        <h5 class="text-white font-medium duration-300 group-hover/actor:text-[#DCF836]">Samuel N. Jack</h5>
-        <p class="text-[#abb7c4] uppercase">actor</p>
-      </div>
-    </div>
-
   </div>
 </div>

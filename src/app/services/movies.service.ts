@@ -10,11 +10,11 @@ export class MoviesService {
   url = 'https://angular-movies-api.vercel.app/movies/';
   http = inject(HttpClient)
   constructor() {}
-  // constructor(public http: HttpClient) { }
-  getAllMovies() {
+  // constructor(private http: HttpClient) { }
+  getAllMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.url);
   }
   getDetail(id: string) {
-    return this.http.get<Movie[]>(this.url + id);
+    return this.http.get<Movie>(this.url + id);
   }
 }
