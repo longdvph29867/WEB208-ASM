@@ -5,7 +5,7 @@ import { LatestNewsComponent } from '../../components/latest-news/latest-news.co
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { MoviesListComponent } from '../../components/movies-list/movies-list.component';
 import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../../common/movie';
+import { Movie } from '../../types/movie';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -29,7 +29,7 @@ export class HomeComponent {
   }
   getAllMovies() {
     this.spinner.show();
-    this.movieService.getAllMovies().subscribe((data: any) => {
+    this.movieService.getAll().subscribe((data: any) => {
       this.moviesList = data
       this.spinner.hide();
     }, (error) => {

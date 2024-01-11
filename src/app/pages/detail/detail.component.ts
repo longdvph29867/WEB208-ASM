@@ -3,7 +3,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../../common/movie';
+import { Movie } from '../../types/movie';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({

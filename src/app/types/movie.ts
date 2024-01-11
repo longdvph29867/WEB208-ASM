@@ -6,7 +6,7 @@ export type Movie = {
   cast: string,
   genre: string,
   runingTime: string,
-  languege: string,
+  language: string,
   rated: number,
   trailer: string,
   imgBanner: string

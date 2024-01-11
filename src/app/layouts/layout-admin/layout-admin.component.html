@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>
+<div class="flex min-h-screen w-full bg-[#f8f9fa]">
+  <div class="lg:w-64 lg:px-4 pl-4 lg:min-w-[256px] duration-500">
+    <app-admin-sidebar></app-admin-sidebar>
+  </div>
+
+  <div class="flex-grow px-4 flex flex-col">
+    <nav class="flex items-center justify-between py-2">
+      <h6 class="font-bold capitalize text-slate-800">Movie. admin</h6>
+      <div class="flex items-center sm:flex-row flex-col-reverse">
+        <!-- search -->
+        <form action=""
+          class="flex items-center rounded-full overflow-hidden relative w-1a0 hover:w-auto duration-500 mr-2">
+          <input type="text"
+            class="h-10 outline-none py-1 pl-4 pr-10 w-44 placeholder:italic bg-[#233a50] text-[#ABB7C4] text-"
+            placeholder="Search...">
+          <button type="button" class="absolute top-0 right-0 h-full w-10 text-[#F27221] text-lg bg-[#233a50]"><i
+              class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="flex items-center">
+          <button class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
+            in</button>
+          <button class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
+            up</button>
+        </div>
+      </div>
+    </nav>
+    <div class="flex-grow relative flex flex-col min-w-0 mb-6 bg-white shadow-sm rounded-2xl">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

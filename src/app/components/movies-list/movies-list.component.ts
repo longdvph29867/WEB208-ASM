@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieItemComponent } from '../movie-item/movie-item.component';
 import { NgFor } from '@angular/common';
-import { Movie } from '../../common/movie';
+import { Movie } from '../../types/movie';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
