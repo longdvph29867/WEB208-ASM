@@ -4,11 +4,13 @@ import { NgFor, SlicePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Movie } from '../../../../types/movie';
 import { MoviesService } from '../../../../services/movies.service';
+import { DescPipe } from '../../../../pipes/desc.pipe';
+import { ToasterService } from '../../../../services/toaster.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgFor, RouterModule, SlicePipe],
+  imports: [NgFor, RouterModule, DescPipe],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -16,7 +18,11 @@ export class DashboardComponent {
   moviesList:Movie[]=[];
   error: string = '';
   // movieService = inject(MoviesService);
-  constructor(private movieService: MoviesService, private spinner: NgxSpinnerService) {}
+  constructor(
+    private movieService: MoviesService,
+    private spinner: NgxSpinnerService,
+    private notification: ToasterService,
+    ) {}
   // constructor(private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
@@ -36,7 +42,7 @@ export class DashboardComponent {
     if(confirm('Có chắc chắn xoá không!')) {
       this.movieService.delete(id).subscribe(res =>{
         this.moviesList = this.moviesList.filter(item=>item._id !==id);
-        alert("Movie Deleted Successfull !.")
+        this.notification.success('Movie delete Successfull!', '')
       })
     }
   }

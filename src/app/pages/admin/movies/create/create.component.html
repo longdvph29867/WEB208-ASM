@@ -1,19 +1,34 @@
 <div class="mt-6 sm:mx-auto sm:w-full px-6">
+  <h1 class="text-[#F27221] text-3xl mb-3">Add movie</h1>
   <form class="space-y-5" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="grid grid-cols-3 gap-6">
+    <div class="grid grid-cols-3 gap-x-6 gap-y-4">
       <div>
         <label for="name" class="block text-sm font-medium leading-6 text-slate-800 capitalize">name</label>
         <div class="mt-2">
           <input id="name" formControlName="name" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['name'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['name'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['name'].errors['required']">Name is
+              Required.</span>
+          </div>
         </div>
       </div>
 
       <div>
-        <label for="poster" class="block text-sm font-medium leading-6 text-slate-800 capitalize">poster</label>
+        <label for=" poster" class="block text-sm font-medium leading-6 text-slate-800 capitalize">poster</label>
         <div class="mt-2">
           <input id="poster" formControlName="poster" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['poster'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['poster'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['poster'].errors['required']">Poster is
+                Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -21,7 +36,14 @@
         <label for="director" class="block text-sm font-medium leading-6 text-slate-800 capitalize">director</label>
         <div class="mt-2">
           <input id="director" formControlName="director" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['director'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['director'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['director'].errors['required']">Director
+                is Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -29,7 +51,14 @@
         <label for="cast" class="block text-sm font-medium leading-6 text-slate-800 capitalize">cast</label>
         <div class="mt-2">
           <input id="cast" formControlName="cast" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['cast'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['cast'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['cast'].errors['required']">Cast is
+                Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -37,10 +66,17 @@
         <label for="genre" class="block text-sm font-medium leading-6 text-slate-800 capitalize">genre</label>
         <div class="mt-2">
           <select id="genre" formControlName="genre" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['genre'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
             <option value="">---Chon---</option>
             <option [value]="category._id" *ngFor="let category of categories">{{category.categoryName}}</option>
           </select>
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['genre'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['genre'].errors['required']">Genre is
+                Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -48,7 +84,14 @@
         <label for="runingTime" class="block text-sm font-medium leading-6 text-slate-800 capitalize">runingTime</label>
         <div class="mt-2">
           <input id="runingTime" formControlName="runingTime" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['runingTime'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['runingTime'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['runingTime'].errors['required']">Runing Time is
+                Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -57,7 +100,14 @@
         <label for="language" class="block text-sm font-medium leading-6 text-slate-800 capitalize">language</label>
         <div class="mt-2">
           <input id="language" formControlName="language" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['language'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['language'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['language'].errors['required']">Language
+                is Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -65,24 +115,39 @@
         <label for="trailer" class="block text-sm font-medium leading-6 text-slate-800 capitalize">trailer</label>
         <div class="mt-2">
           <input id="trailer" formControlName="trailer" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['trailer'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['trailer'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['trailer'].errors['required']">Trailer
+                is
+                Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div>
-        <label for="imgBanner" class="block text-sm font-medium leading-6 text-slate-800 capitalize">imgBanner</label>
+        <label for="imgBanner" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Img Banner</label>
         <div class="mt-2">
           <input id="imgBanner" formControlName="imgBanner" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['imgBanner'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['imgBanner'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['imgBanner'].errors['required']">Img
+                Banner is Required.</span>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <div class="w-1/3">
+    <div class="grid grid-cols-3 gap-6">
       <button type="submit"
-        class="flex w-full justify-center rounded-md bg-[#F27221] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
-        in</button>
+        class="flex w-full justify-center rounded-md bg-[#F27221] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
+        movie</button>
     </div>
   </form>
 </div>

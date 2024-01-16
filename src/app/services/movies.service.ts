@@ -26,7 +26,7 @@ export class MoviesService {
     return this.httpClient.post(this.url, JSON.stringify(movie), this.httpOptions);
   }
   update(id: string, movie: Movie): Observable<any> {
-    return this.httpClient.post(this.url + id, JSON.stringify(movie), this.httpOptions);
+    return this.httpClient.put(this.url + id, JSON.stringify(movie), this.httpOptions);
   }
   delete(id: string): Observable<any> {
     return this.httpClient.delete(this.url + id);

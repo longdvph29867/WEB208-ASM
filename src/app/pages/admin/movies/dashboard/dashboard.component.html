@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="lg:block hidden p-2 col-span-3">
-            <p class="text-sm ">{{(movie.cast | slice : 0 : 100) + '...' }}</p>
+            <p class="text-sm ">{{movie.cast | desc : 50 }}</p>
           </div>
           <div class="p-2">
             <span class="text-sm font-semibold text-slate-400">

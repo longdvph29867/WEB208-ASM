@@ -8,13 +8,23 @@
   <div class="mt-4">
     <ul class="flex flex-col">
 
-      <li key={index} class="">
-        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" href='#'>
+      <li class="">
+        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" routerLink="/admin/movies">
           <div class="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
             <i class="fa-solid fa-house"></i>
           </div>
           <span class="ml-1 opacity-100 hidden lg:block">
             Dashboard
+          </span>
+        </a>
+      </li>
+      <li class="">
+        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" routerLink="/admin/categories">
+          <div class="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <span class="ml-1 opacity-100 hidden lg:block">
+            Categories
           </span>
         </a>
       </li>

@@ -6,8 +6,27 @@ import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.compon
 import { EditComponent } from './pages/admin/movies/edit/edit.component';
 import { DashboardComponent } from './pages/admin/movies/dashboard/dashboard.component';
 import { CreateComponent } from './pages/admin/movies/create/create.component';
+import { ListCategoriesComponent } from './pages/admin/category/list-categories/list-categories.component';
+import { CreateCategoryComponent } from './pages/admin/category/create-category/create-category.component';
+import { EditCategoryComponent } from './pages/admin/category/edit-category/edit-category.component';
+import { LayoutAuthComponent } from './layouts/layout-auth/layout-auth.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 export const routes: Routes = [
+  {
+    'path': 'auth', component: LayoutAuthComponent,
+    children: [
+      {
+        'path': 'login',
+        component: LoginComponent,
+      },
+      {
+        'path': 'register',
+        component: RegisterComponent,
+      },
+    ]
+  },
   {
     'path': '', component: LayoutComponent,
     children: [
@@ -36,6 +55,18 @@ export const routes: Routes = [
       {
         'path': 'movies/edit/:id',
         component: EditComponent
+      },
+      {
+        'path': 'categories',
+        component: ListCategoriesComponent
+      },
+      {
+        'path': 'categories/create',
+        component: CreateCategoryComponent
+      },
+      {
+        'path': 'categories/edit/:slug',
+        component: EditCategoryComponent
       },
     ],
   },
