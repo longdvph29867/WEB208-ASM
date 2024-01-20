@@ -1,12 +1,62 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { Router, RouterLink } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToasterService } from '../../../services/toaster.service';
+import { LocalService } from '../../../services/local.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  form!: FormGroup;
+  submitted = false;
+  constructor(
+    private fb: FormBuilder,
+    public authService: AuthService,
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private notification: ToasterService,
+    private localService: LocalService,
+    ) {
+    this.form = this.fb.group({
+      "email": ["", [Validators.required, Validators.email]],
+      "account":["", Validators.required],
+      "fullName":["", Validators.required],
+      "password":["", Validators.required],
+      "confirmPassword":["", Validators.required]
+    }, { validator: this.checkPasswords });
+  }
 
+  checkPasswords(g: FormGroup) {
+    const pass = g.controls['password'].value;
+    const confirmPass = g.controls['confirmPassword'].value;
+    return pass === confirmPass ? null : { notSame: true };
+  }
+  get f() {
+    return this.form.controls;
+  }
+  submit() {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+    const data = this.form.value;
+    delete data.confirmPassword;
+
+    this.authService.register(data).subscribe((res:any)=>{
+      this.notification.success('Register Successfull!', '')
+      this.router.navigateByUrl('/auth/login');
+    },
+    (error) => {
+      this.notification.error(error.error.message!, '')
+      console.log(error);
+    })
+  }
 }

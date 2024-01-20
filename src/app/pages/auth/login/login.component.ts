@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToasterService } from '../../../services/toaster.service';
+import { LocalService } from '../../../services/local.service';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent {
     private router: Router,
     private spinner: NgxSpinnerService,
     private notification: ToasterService,
+    private localService: LocalService,
     ) {
     this.form = this.fb.group({
       "email": ["", [Validators.required, Validators.email]],
@@ -38,8 +40,7 @@ export class LoginComponent {
     }
     this.authService.login(this.form.value).subscribe((res:any)=>{
       this.notification.success('Login Successfull!', '')
-      console.log(res.data);
-
+      this.localService.set(res.data)
       this.router.navigateByUrl('/');
     },
     (error) => {

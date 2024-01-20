@@ -17,10 +17,36 @@
               class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="flex items-center">
-          <button class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
-            in</button>
-          <button class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
-            up</button>
+          <ng-container *ngIf="!userInfo; else notLoggedIn">
+            <a routerLink="/auth/login"
+              class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">login</a>
+            <a routerLink="/auth/register"
+              class="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
+              up</a>
+          </ng-container>
+          <ng-template #notLoggedIn>
+            <div
+              class="group relative text-[#F27221] text-xl w-10 h-10 ml-4 flex items-center justify-center border border-[#F27221] rounded-full cursor-pointer">
+              <i class="fa-solid fa-user"></i>
+              <div class="hidden group-hover:block absolute top-[120%] right-0">
+                <ul class="text-base bg-[#F27221] min-w-40 p-2 z-10 relative rounded">
+                  <li><a href="#" class="py-1 block text-white duration-300">Thông tin</a>
+                  </li>
+                  <li *ngIf="userInfo?.role === 'admin'"><a routerLink="/admin/movies"
+                      class="py-1 block text-white duration-300">Quản trị</a>
+                  </li>
+                </ul>
+                <div class="absolute -top-3 w-full h-4 bg-transparent"></div>
+                <div
+                  class="absolute bottom-full right-3 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-[#F27221]">
+                </div>
+              </div>
+            </div>
+            <div (click)="handleLogout()"
+              class="text-[#F27221] text-2xl ml-1 w-10 h-10 flex items-center justify-center cursor-pointer">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </div>
+          </ng-template>
         </div>
       </div>
     </nav>

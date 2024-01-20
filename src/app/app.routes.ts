@@ -12,6 +12,7 @@ import { EditCategoryComponent } from './pages/admin/category/edit-category/edit
 import { LayoutAuthComponent } from './layouts/layout-auth/layout-auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate:[authGuard],
     component: LayoutAdminComponent,
     children: [
       {
