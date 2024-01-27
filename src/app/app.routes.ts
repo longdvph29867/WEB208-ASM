@@ -13,8 +13,16 @@ import { LayoutAuthComponent } from './layouts/layout-auth/layout-auth.component
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { authGuard } from './guard/auth.guard';
+import { ListUsersComponent } from './pages/admin/user/list-users/list-users.component';
+import { CreateUserComponent } from './pages/admin/user/create-user/create-user.component';
+import { EditUserComponent } from './pages/admin/user/edit-user/edit-user.component';
+import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.component';
 
 export const routes: Routes = [
+  {
+    'path': 'confirm',
+    component: ConfirmBoxComponent
+  },
   {
     'path': 'auth', component: LayoutAuthComponent,
     children: [
@@ -69,6 +77,18 @@ export const routes: Routes = [
       {
         'path': 'categories/edit/:slug',
         component: EditCategoryComponent
+      },
+      {
+        'path': 'users',
+        component: ListUsersComponent
+      },
+      {
+        'path': 'users/create',
+        component: CreateUserComponent
+      },
+      {
+        'path': 'users/edit/:id',
+        component: EditUserComponent
       },
     ],
   },

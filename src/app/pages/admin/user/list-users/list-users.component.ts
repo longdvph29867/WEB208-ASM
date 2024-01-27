@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import { CategoryService } from '../../../../services/categoty/category.service';
+import { RouterLink } from '@angular/router';
+import { User } from '../../../../types/user';
+import { UserService } from '../../../../services/user/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToasterService } from '../../../../services/toaster/toaster.service';
-import { Category } from '../../../../types/category';
-import { NgFor } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 import { ConfirmBoxComponent } from '../../../../components/confirm-box/confirm-box.component';
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
-  selector: 'app-list-categories',
+  selector: 'app-list-users',
   standalone: true,
-  imports: [RouterModule, NgFor],
-  templateUrl: './list-categories.component.html',
-  styleUrl: './list-categories.component.css'
+  imports: [RouterLink, CommonModule],
+  templateUrl: './list-users.component.html',
+  styleUrl: './list-users.component.css'
 })
-export class ListCategoriesComponent {
-  categoriesList:Category[]=[];
+export class ListUsersComponent {
+  usersList:User[]=[];
   error: string = '';
   constructor(
-    private categoryService: CategoryService,
+    private categoryService: UserService,
     private spinner: NgxSpinnerService,
     private notification: ToasterService,
     private dialog: MatDialog
@@ -31,7 +30,7 @@ export class ListCategoriesComponent {
   getAllMovies() {
     this.spinner.show();
     this.categoryService.getAll().subscribe((data: any) => {
-      this.categoriesList = data
+      this.usersList = data
       this.spinner.hide();
     }, (error) => {
       this.spinner.hide();
@@ -40,7 +39,7 @@ export class ListCategoriesComponent {
   }
   delete(id: string){
     this.categoryService.delete(id).subscribe(res =>{
-      this.categoriesList = this.categoriesList.filter(item=>item._id !==id);
+      this.usersList = this.usersList.filter(item=>item.id !==id);
       this.notification.success('Category delete Successfull!', '')
     })
   }

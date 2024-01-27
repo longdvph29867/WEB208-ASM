@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AdminSidebarComponent } from '../../components/admin-sidebar/admin-sidebar.component';
 import { UserInfo } from '../../types/user';
-import { LocalService } from '../../services/local.service';
+import { LocalService } from '../../services/local/local.service';
 import { NgIf } from '@angular/common';
 
 @Component({

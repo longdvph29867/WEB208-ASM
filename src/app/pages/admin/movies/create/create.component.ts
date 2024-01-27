@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MoviesService } from '../../../../services/movies.service';
+import { MoviesService } from '../../../../services/movie/movies.service';
 import { Router } from '@angular/router';
 import { Category } from '../../../../types/category';
-import { CategoryService } from '../../../../services/category.service';
-import { ToasterService } from '../../../../services/toaster.service';
+import { CategoryService } from '../../../../services/categoty/category.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({

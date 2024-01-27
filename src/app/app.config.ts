@@ -15,12 +15,12 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideHttpClient(),
     provideToastr({
-      timeOut: 3000,
-      positionClass: 'toast-top-center',
-      preventDuplicates: true,
-      progressBar: true
+        timeOut: 3000,
+        positionClass: 'toast-top-center',
+        preventDuplicates: true,
+        progressBar: true
     }),
     provideAnimations(),
-    provideStore(reducers, {metaReducers})
-  ]
+    provideStore(reducers, { metaReducers }),
+]
 };

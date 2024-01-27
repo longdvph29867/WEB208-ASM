@@ -4,7 +4,7 @@ import { TrailersComponent } from '../../components/trailers/trailers.component'
 import { LatestNewsComponent } from '../../components/latest-news/latest-news.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { MoviesListComponent } from '../../components/movies-list/movies-list.component';
-import { MoviesService } from '../../services/movies.service';
+import { MoviesService } from '../../services/movie/movies.service';
 import { Movie } from '../../types/movie';
 import { NgxSpinnerService } from 'ngx-spinner';
 

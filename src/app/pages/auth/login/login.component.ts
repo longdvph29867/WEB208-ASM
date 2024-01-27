@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ToasterService } from '../../../services/toaster.service';
-import { LocalService } from '../../../services/local.service';
+import { ToasterService } from '../../../services/toaster/toaster.service';
+import { LocalService } from '../../../services/local/local.service';
 
 @Component({
   selector: 'app-login',

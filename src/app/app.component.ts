@@ -5,7 +5,6 @@ import { Store, createFeatureSelector, createSelector } from '@ngrx/store';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { Observable } from 'rxjs';
 import { UserState } from './store/reducers/user.reducer';
-
 @Component({
   selector: 'app-root',
   standalone: true,

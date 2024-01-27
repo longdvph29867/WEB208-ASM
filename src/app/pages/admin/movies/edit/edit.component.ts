@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Movie } from '../../../../types/movie';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MoviesService } from '../../../../services/movies.service';
-import { CategoryService } from '../../../../services/category.service';
+import { MoviesService } from '../../../../services/movie/movies.service';
+import { CategoryService } from '../../../../services/categoty/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../../../../types/category';
-import { ToasterService } from '../../../../services/toaster.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -49,7 +49,6 @@ export class EditComponent {
   }
 
   setValue() {
-
     if (this.movie) {
       this.form.patchValue({
         name: this.movie.name,

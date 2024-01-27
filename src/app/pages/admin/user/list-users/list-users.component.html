@@ -1,0 +1,54 @@
+<div class="">
+  <div class="p-4 pb-0 mb-0 bg-white rounded-t-2xl">
+    <a routerLink="/admin/users/create" class="text-white text-base font-semibold bg-green-500 py-2 px-2 rounded my-5">
+      <span>Thêm mới</span>
+    </a>
+  </div>
+  <div class="h-full overflow-x-auto px-4">
+    <div class="w-full border-gray-200 text-slate-500">
+      <div class="w-full grid grid-cols-5 gap-2 border-b border-gray-400">
+        <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
+          Account
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Full name
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Email
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Role
+        </div>
+        <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
+          Thao tác
+        </div>
+      </div>
+      <div>
+
+        <div *ngFor="let user of usersList"
+          class="grid grid-cols-5 gap-2 border-b sm:border-transparent border-slate-300">
+          <div class="pr-6 pl-4 py-3 text-left text-slate-600">
+            {{user.account}}
+          </div>
+          <div class="pr-6 pl-4 py-3 text-left text-slate-600">
+            {{user.fullName}}
+          </div>
+          <div class="pr-6 pl-4 py-3 text-left text-slate-600">
+            {{user.email}}
+          </div>
+          <div class="pr-6 pl-4 py-3 text-left text-slate-600">
+            {{user.role}}
+          </div>
+          <div class="p-2 space-x-2">
+            <a [routerLink]="['/admin/users/edit', user.id]" class="text-sm font-semibold text-yellow-500">
+              Sửa
+            </a>
+            <button (click)="openConfirmBox(user.id)" class="text-sm font-semibold text-red-500">
+              Xoá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

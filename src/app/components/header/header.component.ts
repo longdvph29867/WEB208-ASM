@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserInfo } from '../../types/user';
-import { LocalService } from '../../services/local.service';
+import { LocalService } from '../../services/local/local.service';
 
 @Component({
   selector: 'app-header',

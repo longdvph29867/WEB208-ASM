@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { LocalService } from '../services/local.service';
+import { LocalService } from '../services/local/local.service';
 import { inject } from '@angular/core';
 
 export const authGuard: CanActivateFn = (route, state) => {

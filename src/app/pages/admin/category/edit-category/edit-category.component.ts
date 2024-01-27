@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Category } from '../../../../types/category';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MoviesService } from '../../../../services/movies.service';
-import { CategoryService } from '../../../../services/category.service';
+import { MoviesService } from '../../../../services/movie/movies.service';
+import { CategoryService } from '../../../../services/categoty/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToasterService } from '../../../../services/toaster.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 import { CommonModule } from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
 

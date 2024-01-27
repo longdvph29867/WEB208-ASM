@@ -1,0 +1,106 @@
+<div class="mt-6 sm:mx-auto sm:w-full px-6">
+  <h1 class="text-[#F27221] text-3xl mb-3">Add user</h1>
+  <form class="space-y-5" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="grid grid-cols-3 gap-x-6 gap-y-4">
+      <div>
+        <label for="Account" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Account</label>
+        <div class="mt-2">
+          <input id="Account" formControlName="account" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['account'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['account'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['account'].errors['required']">Account Name is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="fullName" class="block text-sm font-medium leading-6 text-slate-800 capitalize">FullName</label>
+        <div class="mt-2">
+          <input id="fullName" formControlName="fullName" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['fullName'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['fullName'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['fullName'].errors['required']">FullName is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Email</label>
+        <div class="mt-2">
+          <input id="email" formControlName="email" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['email'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['email'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['email'].errors['required']">Email is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="genre" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Role</label>
+        <div class="mt-2">
+          <select id="genre" formControlName="role" type="text"
+            [ngClass]="{ 'border-red-500': submitted && f['role'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+            <option value="">---Chon---</option>
+            <option value="admin">Admin</option>
+            <option value="member">Member</option>
+          </select>
+          <div class="min-h-3">
+            <div *ngIf="submitted && f['role'].errors">
+              <span class="text-xs text-red-500" *ngIf="f['role'].errors['required']">Role is
+                Required.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Password</label>
+        <div class="mt-2">
+          <input id="password" formControlName="password" type="password"
+            [ngClass]="{ 'border-red-500': submitted && f['password'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted && f['password'].errors">
+            <span class="text-xs text-red-500" *ngIf="f['password'].errors['required']">Password is
+              Required.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label for="confirmPassword" class="block text-sm font-medium leading-6 text-slate-800 capitalize">Comfirm
+          Password</label>
+        <div class="mt-2">
+          <input id="confirmPassword" formControlName="confirmPassword" type="password"
+            [ngClass]="{ 'border-red-500': submitted && f['confirmPassword'].errors}"
+            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+        </div>
+        <div class="min-h-3">
+          <div *ngIf="submitted">
+            <span class="text-xs text-red-500"
+              *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['required']">Confirm Password is
+              Required.</span>
+            <span class="text-xs text-red-500" *ngIf="!f['confirmPassword'].errors && form.hasError('notSame')">Your
+              new passwords are not match</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+      <button type="submit"
+        class="flex w-full justify-center rounded-md bg-[#F27221] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add
+        user</button>
+    </div>
+  </form>
+</div>

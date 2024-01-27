@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Category } from '../../../../types/category';
-import { ToasterService } from '../../../../services/toaster.service';
+import { ToasterService } from '../../../../services/toaster/toaster.service';
 import { Router } from '@angular/router';
-import { CategoryService } from '../../../../services/category.service';
+import { CategoryService } from '../../../../services/categoty/category.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

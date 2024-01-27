@@ -22,3 +22,6 @@
 .three-line {
   -webkit-line-clamp: 3;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
