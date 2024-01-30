@@ -17,6 +17,7 @@ import { LocalService } from '../../../services/local/local.service';
 export class LoginComponent {
   form!: FormGroup;
   submitted = false;
+  emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
@@ -26,7 +27,7 @@ export class LoginComponent {
     private localService: LocalService,
     ) {
     this.form = this.fb.group({
-      "email": ["", [Validators.required, Validators.email]],
+      "email": ["", [Validators.required, Validators.pattern(this.emailPattern)]],
       "password":["", Validators.required]
     });
   }
@@ -41,7 +42,12 @@ export class LoginComponent {
     this.authService.login(this.form.value).subscribe((res:any)=>{
       this.notification.success('Login Successfull!', '')
       this.localService.set(res.data)
-      this.router.navigateByUrl('/');
+      if(res.data.role === 'admin') {
+        this.router.navigateByUrl('/admin/movies');
+      }
+      else {
+        this.router.navigateByUrl('/');
+      }
     },
     (error) => {
       this.notification.error(error.error.message!, '')

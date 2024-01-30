@@ -6,10 +6,10 @@
         class="block w-full rounded-md outline-none border-0 py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
     </div>
     <div class="min-h-3">
-      <div *ngIf="submitted && f['email'].errors">
-        <span class="text-xs text-red-500" *ngIf="f['email'].errors['required']">Email is
+      <div *ngIf="submitted">
+        <span class="text-xs text-red-500" *ngIf="f['email'].errors && f['email'].errors['required']">Email is
           Required.</span>
-        <span class="text-xs text-red-500" *ngIf="f['email'].errors['email']">Must be a valid email</span>
+        <span class="text-xs text-red-500" *ngIf="f['email'].hasError('pattern')">Must be a valid email</span>
       </div>
     </div>
   </div>

@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   form!: FormGroup;
   submitted = false;
+  emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
@@ -26,7 +27,7 @@ export class RegisterComponent {
     private localService: LocalService,
     ) {
     this.form = this.fb.group({
-      "email": ["", [Validators.required, Validators.email]],
+      "email": ["", [Validators.required, Validators.pattern(this.emailPattern)]],
       "account":["", Validators.required],
       "fullName":["", Validators.required],
       "password":["", Validators.required],
