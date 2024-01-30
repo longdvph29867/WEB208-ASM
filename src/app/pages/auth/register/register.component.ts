@@ -50,12 +50,14 @@ export class RegisterComponent {
     }
     const data = this.form.value;
     delete data.confirmPassword;
-
+    this.spinner.show();
     this.authService.register(data).subscribe((res:any)=>{
+      this.spinner.hide();
       this.notification.success('Register Successfull!', '')
       this.router.navigateByUrl('/auth/login');
     },
     (error) => {
+      this.spinner.hide();
       this.notification.error(error.error.message!, '')
       console.log(error);
     })

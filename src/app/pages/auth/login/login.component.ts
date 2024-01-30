@@ -39,9 +39,11 @@ export class LoginComponent {
     if (this.form.invalid) {
       return;
     }
+    this.spinner.show();
     this.authService.login(this.form.value).subscribe((res:any)=>{
       this.notification.success('Login Successfull!', '')
       this.localService.set(res.data)
+      this.spinner.hide();
       if(res.data.role === 'admin') {
         this.router.navigateByUrl('/admin/movies');
       }
@@ -50,6 +52,7 @@ export class LoginComponent {
       }
     },
     (error) => {
+      this.spinner.hide();
       this.notification.error(error.error.message!, '')
       console.log(error);
     })
