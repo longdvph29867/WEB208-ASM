@@ -7,9 +7,12 @@
   </div>
   <div class="h-full overflow-x-auto px-4">
     <div class="w-full border-gray-200 text-slate-500">
-      <div class="w-full grid grid-cols-2 gap-2 border-b border-gray-400">
+      <div class="w-full grid grid-cols-3 gap-2 border-b border-gray-400">
         <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
-          Name category
+          Genre
+        </div>
+        <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
+          Quantity Genre
         </div>
         <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
           Thao tác
@@ -18,9 +21,15 @@
       <div>
 
         <div *ngFor="let category of categoriesList"
-          class="grid grid-cols-2 gap-2 border-b sm:border-transparent border-slate-300">
+          class="grid grid-cols-3 gap-2 border-b sm:border-transparent border-slate-300">
           <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
             {{category.categoryName}}
+          </div>
+          <div class="pr-6 pl-4 py-3 text-left text-slate-600">
+            <a [routerLink]="['/admin/movies']" [queryParams]="{ genre: category._id }" class="underline">
+              {{ category.quantityMovie === 1 ? category.quantityMovie + ' movie' : category.quantityMovie + ' movies'
+              }}
+            </a>
           </div>
           <div class="p-2 space-x-2">
             <a [routerLink]="['/admin/categories/edit', category.categorySlug]"

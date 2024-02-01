@@ -40,7 +40,7 @@ export class ListUsersComponent {
   delete(id: string){
     this.categoryService.delete(id).subscribe(res =>{
       this.usersList = this.usersList.filter(item=>item.id !==id);
-      this.notification.success('Category delete Successfull!', '')
+      this.notification.success('User delete Successfull!', '')
     })
   }
 

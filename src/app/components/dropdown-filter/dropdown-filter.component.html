@@ -1,0 +1,56 @@
+<div class="relative" #dropdownContainer>
+  <button (click)="toggleDropdown()"
+    class="text-white bg-[#F27221] font-medium rounded-lg text-sm px-5 py-2.5 text-center flex justify-center items-center gap-2"
+    type="button">
+    Filter <i class="fa-solid fa-filter"></i>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div *ngIf="isDropdownOpen"
+    class=" absolute top-full right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-2xl w-96 max-h-96 overflow-y-scroll">
+    <div class="grid grid-cols-2 gap-2 py-2">
+      <ul class="py-2 text-sm text-slate-800">
+        <h3 class="px-4 py-2 text-lg font-medium">Gener</h3>
+        <li *ngFor="let category of categoriesList" class="px-4 py-2 ">
+          <label class="containerCheckbox">{{category.categoryName}}
+            <input (change)="onChange($event)" type="checkbox" name="genre" [value]="category._id" class="mr-2"
+              [checked]="categoryFilter.includes(category._id)" />
+            <span class="checkmark"></span>
+          </label>
+        </li>
+      </ul>
+      <ul class="py-2 text-sm text-slate-800">
+        <h3 class="px-4 py-2 text-lg font-medium">Run time</h3>
+        <li class="px-4 py-2">
+          <label class="radioContainer">
+            &lt; 100 min <input (change)="onChange($event)" type="radio" name="runingTime" value="lower_100"
+              class="mr-2" [checked]="runingTime === 'lower_100'" />
+            <span class="checkmark"></span>
+          </label>
+        </li>
+        <li class="px-4 py-2">
+          <label class="radioContainer">
+            100 - 120 min <input (change)="onChange($event)" type="radio" name="runingTime" value="100_120" class="mr-2"
+              [checked]="runingTime === '100_120'" />
+            <span class="checkmark"></span>
+          </label>
+        </li>
+        <li class="px-4 py-2">
+          <label class="radioContainer">
+            &gt; 120 min <input (change)="onChange($event)" type="radio" name="runingTime" value="greater_120"
+              class="mr-2" [checked]="runingTime === 'greater_120'" />
+            <span class="checkmark"></span>
+          </label>
+        </li>
+        <li class="px-4 py-2">
+          <label class="radioContainer">
+            Tất cả <input (change)="onChange($event)" type="radio" name="runingTime" value="all_time" class="mr-2"
+              [checked]="runingTime === 'all_time' || runingTime === ''" />
+            <span class="checkmark"></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -18,19 +18,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent {
   moviesList:Movie[]=[];
   error: string = '';
-  movieService = inject(MoviesService);
-  // constructor(private movieService: MoviesService) {}
-  constructor(private spinner: NgxSpinnerService) {
-
-  }
+  constructor(
+    private movieService: MoviesService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getAllMovies();
   }
   getAllMovies() {
     this.spinner.show();
-    this.movieService.getAll().subscribe((data: any) => {
-      this.moviesList = data
+    this.movieService.getAll(2).subscribe((data: any) => {
+      this.moviesList = data.results
       this.spinner.hide();
     }, (error) => {
       this.spinner.hide();

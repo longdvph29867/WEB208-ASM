@@ -7,7 +7,8 @@ import { Category } from '../../types/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  private url = 'https://angular-movies-api.vercel.app/categories/';
+  // private url = 'https://angular-movies-api.vercel.app/categories/';
+  private url = 'https://api-movies-azure.vercel.app/categories/';
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"

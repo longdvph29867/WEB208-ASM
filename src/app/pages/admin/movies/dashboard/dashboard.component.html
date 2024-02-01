@@ -1,10 +1,19 @@
-<div class="">
-  <div class="p-4 pb-0 mb-0 bg-white rounded-t-2xl">
+<div class="flex flex-col min-h-screen">
+  <div class="p-4 pb-0 mb-0 bg-white rounded-t-2xl flex items-center justify-between">
     <a routerLink="/admin/movies/create" class="text-white text-base font-semibold bg-green-500 py-2 px-2 rounded my-5">
-      <span>Thêm mới</span>
+      <span>Add movie</span>
     </a>
+    <div class="flex items-center gap-2">
+      <app-search-admin [key]="key" [listMovie]="moviesSearchChange" (changeSearch)="changeSearch($event)"
+        (submitSearch)="submitSearch($event)">
+      </app-search-admin>
+      <app-dropdown-filter [categoryFilter]="categoryFilter" [runingTime]="runingTime"
+        (changeCategory)="changeCategory($event)" (changeRunTime)="changeRunTime($event)">
+      </app-dropdown-filter>
+    </div>
   </div>
-  <div class="h-full overflow-x-auto">
+
+  <div class="h-full overflow-x-auto" *ngIf="moviesList.length > 0">
     <div class="w-full border-gray-200 text-slate-500">
       <div class="w-full grid lg:grid-cols-9 sm:grid-cols-5 grid-cols-2 gap-2">
         <div class="pr-6 pl-4 py-3  text-left font-bold uppercase text-slate-800">
@@ -17,13 +26,13 @@
           cast
         </div>
         <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
-          director
+          genre
         </div>
         <div class="lg:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
           language
         </div>
         <div class="sm:block hidden pr-6 pl-2 py-3  text-left font-bold uppercase text-slate-800">
-          Thao tác
+          action
         </div>
       </div>
       <div>
@@ -33,15 +42,17 @@
           <div class="p-2">
             <div class="px-2 py-1 min-w-[110px]">
               <div>
-                <img [src]='movie.poster' class="mr-4 h-20 w-20 rounded" />
+                <img [src]='movie.poster' class="mr-4 h-20 w-20 rounded object-cover" />
               </div>
             </div>
           </div>
           <div class="p-2 sm:col-span-2">
             <div class="flex flex-col justify-center">
-              <h6 class="text-base">{{movie.name}}</h6>
+              <a [routerLink]="['/admin/movies/detail', movie._id]" class="block">
+                <h6 class="text-base">{{movie.name}}</h6>
+              </a>
               <p class="text-sm text-slate-400">
-                {{movie.runingTime}}
+                {{movie.runingTime}} min
               </p>
             </div>
           </div>
@@ -50,7 +61,7 @@
           </div>
           <div class="p-2">
             <span class="text-sm font-semibold text-slate-400">
-              {{movie.director}}
+              {{movie.genre}}
             </span>
           </div>
           <div class="lg:block hidden p-2">
@@ -60,14 +71,41 @@
           </div>
           <div class="p-2 space-x-2">
             <a [routerLink]="['/admin/movies/edit', movie._id]" class="text-sm font-semibold text-yellow-500">
-              Sửa
+              Edit
             </a>
             <button (click)="openConfirmBox(movie._id)" class="text-sm font-semibold text-red-500">
-              Xoá
+              Delete
             </button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <!-- pagination -->
+  <ng-container *ngIf="moviesList.length > 0">
+    <div class="p-4 bg-transparent">
+      <app-pagination [currentPage]="currentPage" [limit]="limitActive" [pageActive]="pageActive"
+        (changePage)="changePage($event)" (changeLimit)="changeLimit($event)">
+      </app-pagination>
+    </div>
+  </ng-container>
+
+  <div class="flex-grow flex items-center justify-center" *ngIf="moviesList.length === 0">
+    <div>
+      <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
+          <ellipse fill="#f5f5f5" cx="32" cy="33" rx="32" ry="7"></ellipse>
+          <g fill-rule="nonzero" stroke="#d9d9d9">
+            <path
+              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z">
+            </path>
+            <path
+              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+              fill="#fafafa"></path>
+          </g>
+        </g>
+      </svg>
+      <h3 class="text-center mt-2 text-[#dbdbdb]">No Data</h3>
     </div>
   </div>
 </div>

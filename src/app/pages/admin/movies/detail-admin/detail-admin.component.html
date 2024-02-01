@@ -1,0 +1,46 @@
+<div class="p-10">
+  <button (click)="goBack()"
+    class="inline-block text-white text-base font-semibold bg-[#F27221] py-2 px-2 mb-3 rounded">
+    <i class="fa-solid fa-chevron-left"></i>
+    Back
+  </button>
+  <div class="flex gap-10 lg:flex-row flex-col">
+    <div class="lg:w-2/5 max-w-xs">
+      <div><img alt="" class="rounded-md max-h-[500px] w-full object-cover object-top" [src]="movie.poster" />
+      </div>
+    </div>
+    <div class="lg:w-3/5">
+      <div>
+        <h1 class="text-4xl text-slate-800 font-semibold mb-6">{{movie.name}}</h1>
+        <div class="mt-8 flex flex-col gap-3">
+          <div>
+            <h6 class="text-slate-600 font-semibold capitalize mb-1">Director: </h6>
+            <p><a href="#" class="text-[#4280bf] hover:text-[#dcf836]">{{movie.director}}</a>
+            </p>
+          </div>
+          <div>
+            <h6 class="text-slate-600 font-semibold capitalize mb-1">Stars: </h6>
+            <p><a href="#" class="text-[#4280bf] hover:text-[#dcf836]">{{movie.cast}}</a></p>
+          </div>
+          <div>
+            <h6 class="text-slate-600 font-semibold capitalize mb-1">Genres: </h6>
+            <p><a href="#" class="text-[#4280bf] hover:text-[#dcf836]">Chuck Lorre, Bill
+                Prady</a></p>
+          </div>
+          <div>
+            <h6 class="text-slate-600 font-semibold capitalize mb-1">Run time: </h6>
+            <p class="text-[#4280bf]">{{movie.runingTime}} min</p>
+          </div>
+          <div>
+            <h6 class="text-slate-600 font-semibold capitalize mb-1">Description: </h6>
+            <p class="text-[#4280bf]">Leonard Hofstadter and Sheldon Cooper are both
+              brilliant physicists working at Cal Tech in Pasadena, California. They are colleagues, best friends, and
+              roommates, although in all capacities their relationship is always tested primarily by Sheldon's
+              regimented,
+              deeply eccentric, and non-conventional ways.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

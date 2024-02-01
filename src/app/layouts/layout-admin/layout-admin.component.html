@@ -7,15 +7,6 @@
     <nav class="flex items-center justify-between py-2">
       <h6 class="font-bold capitalize text-slate-800">Movie. admin</h6>
       <div class="flex items-center sm:flex-row flex-col-reverse">
-        <!-- search -->
-        <form action=""
-          class="flex items-center rounded-full overflow-hidden relative w-1a0 hover:w-auto duration-500 mr-2">
-          <input type="text"
-            class="h-10 outline-none py-1 pl-4 pr-10 w-44 placeholder:italic bg-[#233a50] text-[#ABB7C4] text-"
-            placeholder="Search...">
-          <button type="button" class="absolute top-0 right-0 h-full w-10 text-[#F27221] text-lg bg-[#233a50]"><i
-              class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
         <div class="flex items-center">
           <ng-container *ngIf="!userInfo; else notLoggedIn">
             <a routerLink="/auth/login"

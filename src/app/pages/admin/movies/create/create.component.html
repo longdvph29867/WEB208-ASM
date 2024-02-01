@@ -17,18 +17,28 @@
         </div>
       </div>
 
-      <div>
-        <label for=" poster" class="block text-sm font-medium leading-6 text-slate-800 capitalize">poster</label>
-        <div class="mt-2">
-          <input id="poster" formControlName="poster" type="text"
-            [ngClass]="{ 'border-red-500': submitted && f['poster'].errors}"
-            class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
-          <div class="min-h-3">
-            <div *ngIf="submitted && f['poster'].errors">
-              <span class="text-xs text-red-500" *ngIf="f['poster'].errors['required']">Poster is
-                Required.</span>
+      <div class="grid grid-cols-3">
+        <div class="col-span-3" [ngClass]="{ '!col-span-2': selectedImageBase64}">
+          <label for="poster" class="block text-sm font-medium leading-6 text-slate-800 capitalize">poster</label>
+          <div class="mt-2">
+            <input id="poster" formControlName="poster" type="file" (change)="handleChangeImage($event)"
+              [ngClass]="{ 'border-red-500': (submitted && f['poster'].errors) || form.hasError('fileSizeExceeded') || form.hasError('fileTypeExceeded')}"
+              class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+            <div class="min-h-3">
+              <div *ngIf="submitted || form.hasError('fileSizeExceeded') || form.hasError('fileTypeExceeded')">
+                <span class="text-xs text-red-500" *ngIf="f['poster'].errors && f['poster'].errors['required']">Poster
+                  is
+                  Required.</span>
+                <span class="text-xs text-red-500" *ngIf="!f['poster'].errors && form.hasError('fileSizeExceeded')">Max
+                  size 1Mb</span>
+                <span class="text-xs text-red-500" *ngIf="!f['poster'].errors && form.hasError('fileTypeExceeded')">File
+                  is not an image</span>
+              </div>
             </div>
           </div>
+        </div>
+        <div *ngIf="selectedImageBase64">
+          <img class="w-20 h-20 object-cover ml-auto" [src]="selectedImageBase64" alt="">
         </div>
       </div>
 
@@ -83,7 +93,7 @@
       <div>
         <label for="runingTime" class="block text-sm font-medium leading-6 text-slate-800 capitalize">runingTime</label>
         <div class="mt-2">
-          <input id="runingTime" formControlName="runingTime" type="text"
+          <input id="runingTime" formControlName="runingTime" type="number"
             [ngClass]="{ 'border-red-500': submitted && f['runingTime'].errors}"
             class="block w-full rounded-md outline-none border py-1.5 shadow-sm px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
           <div class="min-h-3">

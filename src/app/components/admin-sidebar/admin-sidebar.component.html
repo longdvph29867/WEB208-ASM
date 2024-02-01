@@ -9,7 +9,8 @@
     <ul class="flex flex-col">
 
       <li class="">
-        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" routerLink="/admin/movies">
+        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
+          [ngClass]="{'lg:bg-white lg:shadow-xl ': routers.movies === currentUrl}" routerLink="/admin/movies">
           <div class="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
             <i class="fa-solid fa-house"></i>
           </div>
@@ -19,7 +20,8 @@
         </a>
       </li>
       <li class="">
-        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" routerLink="/admin/categories">
+        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
+          [ngClass]="{'lg:bg-white lg:shadow-xl ': routers.categories === currentUrl}" routerLink="/admin/categories">
           <div class="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em"
               xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +37,8 @@
         </a>
       </li>
       <li class="">
-        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg" routerLink="/admin/users">
+        <a class="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
+          [ngClass]="{'lg:bg-white lg:shadow-xl ': routers.users === currentUrl}" routerLink="/admin/users">
           <div class="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
             <i class="fa-solid fa-user"></i>
           </div>

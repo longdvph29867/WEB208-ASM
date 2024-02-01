@@ -1,0 +1,35 @@
+<div class="relative" #listSearchContainer>
+  <form (ngSubmit)="handleSubmit()"
+    class="flex items-center rounded-full overflow-hidden relative w-1a0 hover:w-auto duration-500 mr-2">
+    <input name="search" type="text" autocomplete="off"
+      class="h-10 outline-none py-1 pl-4 pr-10 w-44 placeholder:italic bg-[#233a50] text-[#ABB7C4]"
+      placeholder="Search..." [(ngModel)]="key" (ngModelChange)="onChangeSearch()" (focus)="onInputFocus()">
+    <button type="submit" class="absolute top-0 right-0 h-full w-10 text-[#F27221] text-lg bg-[#233a50]"><i
+        class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  <div *ngIf="listMovie.length > 0">
+    <div class="absolute top-[120%] right-0 rounded-lg bg-slate-100 shadow w-96 py-3" *ngIf="isOpen">
+      <ul class="max-h-96 overflow-y-scroll">
+        <li *ngFor="let movie of listMovie" class="px-3">
+          <a [routerLink]="['/admin/movies/detail', movie._id]" class="flex items-center">
+            <div>
+              <div class="py-1 min-w-[80px]">
+                <div>
+                  <img [src]='movie.poster' class="h-20 w-20 rounded" />
+                </div>
+              </div>
+            </div>
+            <div class="p-2">
+              <div class="flex flex-col justify-center">
+                <h6 class="text-base two-line">{{movie.name}}</h6>
+                <p class="text-sm text-slate-400">
+                  {{movie.runingTime}} min
+                </p>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

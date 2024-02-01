@@ -17,6 +17,7 @@ import { ListUsersComponent } from './pages/admin/user/list-users/list-users.com
 import { CreateUserComponent } from './pages/admin/user/create-user/create-user.component';
 import { EditUserComponent } from './pages/admin/user/edit-user/edit-user.component';
 import { ConfirmBoxComponent } from './components/confirm-box/confirm-box.component';
+import { DetailAdminComponent } from './pages/admin/movies/detail-admin/detail-admin.component';
 
 export const routes: Routes = [
   {
@@ -65,6 +66,10 @@ export const routes: Routes = [
       {
         'path': 'movies/edit/:id',
         component: EditComponent
+      },
+      {
+        'path': 'movies/detail/:id',
+        component: DetailAdminComponent
       },
       {
         'path': 'categories',
