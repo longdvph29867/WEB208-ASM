@@ -45,10 +45,10 @@ export class LoginComponent {
       this.localService.set(res.data)
       this.spinner.hide();
       if(res.data.role === 'admin') {
-        this.router.navigateByUrl('/admin/movies');
+        location.href = '/admin/movies';
       }
       else {
-        this.router.navigateByUrl('/');
+        location.href = '/';
       }
     },
     (error) => {
