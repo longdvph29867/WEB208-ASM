@@ -39,7 +39,7 @@ export class SearchAdminComponent {
       } else {
         this.isOpen = true;
       }
-    }, 600);
+    }, 300);
   }
 
   @HostListener('document:mousedown', ['$event'])
